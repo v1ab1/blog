@@ -1,6 +1,7 @@
 import express from "express";
 import jwt from "jsonwebtoken";
 import mongoose from "mongoose";
+import { registerValidation } from "./validations/auth.js";
 
 mongoose
     .connect('mongodb+srv://admin:8888@cluster0.5chjhac.mongodb.net/?retryWrites=true&w=majority')
@@ -15,17 +16,8 @@ app.get('/', (req, res) => {
     res.send("Server is fine!");
 });
 
-app.post('/auth/login', (req,res) => {
-    const token = jwt.sign(
-        {
-        email: req.body.email
-        },
-        "secretkey",
-    );
-    res.json({
-        success: true,
-        token
-    });
+app.post('/auth/reg', registerValidation, (req,res) => {
+
 });
 
 app.listen(4000, (err) => {
