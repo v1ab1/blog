@@ -1,5 +1,6 @@
 import express from "express";
 import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
 import mongoose from "mongoose";
 import { validationResult } from "express-validator";
 import { registerValidation } from "./validations/auth.js";
@@ -18,18 +19,28 @@ app.get('/', (req, res) => {
     res.send("Server is fine!");
 });
 
-app.post('/auth/reg', registerValidation, (req,res) => {
+app.post('/auth/reg', registerValidation, async (req,res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).json(errors.array());
     }
+
+    const pass = req.body.pass;
+
+    const salt = await bcrypt.genSalt(10); 
+
+    const passHash = await bcrypt.hash(pass, salt);
+
     const doc = new UserModel({
         email: req.body.email,
-        fullName: req.body.fullName
+        fullName: req.body.fullName,
+        avatarUrl: req.body.avatarUrl,
+        passHash,
     });
-    res.json({
-        success: true,
-    });
+
+    const user = await doc.save();
+
+    res.json(user);
 });
 
 app.listen(4000, (err) => {
