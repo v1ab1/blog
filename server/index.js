@@ -26,7 +26,7 @@ app.get('/auth/me', checkAuth, getMe);
 app.get('/posts', getAll);
 app.get('/posts/:id', getOne);
 app.post('/posts', checkAuth, postCreateValidation, create);
-app.delete('/posts', remove);
+app.delete('/posts/:id', checkAuth, remove);
 app.patch('/posts', update);
 
 app.listen(4000, (err) => {
