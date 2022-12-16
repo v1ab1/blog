@@ -19,6 +19,48 @@ app.get('/', (req, res) => {
     res.send("Server is fine!");
 });
 
+app.post('/auth/login', async (req, res) => {
+    try {
+        const user = await UserModel.findOne({ email: req.body.email });
+        
+        if (!user) {
+            return res.status(404).json({
+                message: "User not found"
+            });
+        }
+
+        const isValidPass = await bcrypt.compare(req.body.pass, user._doc.passHash);
+
+        if (!isValidPass) {
+            return res.status(404).json({
+                message: "Wrong login or password"
+            })
+        }
+
+        const token = jwt.sign(
+            {
+                _id: user._doc._id,
+            },
+            'secretKey',
+            {
+                expiresIn: '30d',
+            },
+        );
+
+        const { passHash, ...userData } = user._doc;
+
+        res.json({
+            ...userData,
+            token
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message: "Login error"
+        });
+    }
+});
+
 app.post('/auth/reg', registerValidation, async (req,res) => {
     try {
         const errors = validationResult(req);
@@ -36,12 +78,27 @@ app.post('/auth/reg', registerValidation, async (req,res) => {
             email: req.body.email,
             fullName: req.body.fullName,
             avatarUrl: req.body.avatarUrl,
-            pass: hash,
+            passHash: hash,
         });
 
         const user = await doc.save();
 
-        res.json(user);
+        const token = jwt.sign(
+            {
+                _id: user._doc._id,
+            },
+            'secretKey',
+            {
+                expiresIn: '30d',
+            },
+        );
+
+        const { passHash, ...userData } = user._doc;
+
+        res.json({
+            ...userData,
+            token
+        });
     } catch (error) {
         console.log(error);
         res.status(500).json({
