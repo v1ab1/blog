@@ -8,7 +8,7 @@ import UserModel from "./models/User.js";
 
 mongoose
     .connect('mongodb+srv://admin:8888@cluster0.5chjhac.mongodb.net/?retryWrites=true&w=majority')
-    .then(() => console.log('DB is OK'))
+    .then(() => console.log('DB is OK!'))
     .catch((err) => console.log('DB error', err));
 
 const app = express();
@@ -29,13 +29,13 @@ app.post('/auth/reg', registerValidation, async (req,res) => {
 
     const salt = await bcrypt.genSalt(10); 
 
-    const passHash = await bcrypt.hash(pass, salt);
+    const hash = await bcrypt.hash(pass, salt);
 
     const doc = new UserModel({
         email: req.body.email,
         fullName: req.body.fullName,
         avatarUrl: req.body.avatarUrl,
-        passHash,
+        pass: hash,
     });
 
     const user = await doc.save();
