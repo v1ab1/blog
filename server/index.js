@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import { validationResult } from "express-validator";
 import { registerValidation } from "./validations/auth.js";
 import UserModel from "./models/User.js";
+import checkAuth from "./utils/checkAuth.js";
 
 mongoose
     .connect('mongodb+srv://admin:8888@cluster0.5chjhac.mongodb.net/blog?retryWrites=true&w=majority')
@@ -104,6 +105,14 @@ app.post('/auth/reg', registerValidation, async (req,res) => {
         res.status(500).json({
             message: "Register error"
         });
+    }
+});
+
+app.get('/auth/me', checkAuth,  (req, res) => {
+    try {
+        
+    } catch (error) {
+        
     }
 });
 
