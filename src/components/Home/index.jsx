@@ -14,6 +14,14 @@ export const Home = () => {
             Popular
           </p>
         </div>
+        <div className={style.main}>
+          <div className={style.Posts}>
+            <Post />
+            <Post />
+            <Post />
+          </div>
+          <Tags />
+        </div>
       </div>
     </div>
   );
