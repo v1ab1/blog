@@ -4,11 +4,11 @@ export const Header = () => {
     return (
     <div className={style.Header}>
       <div className={style.content}>
-          <div>
-            Главная
+          <div className={style.active}>
+            Main
           </div>
           <div>
-            Вход
+            Log in
           </div>
       </div>
     </div>
