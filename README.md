@@ -19,6 +19,8 @@ Sass<br>
 Node.js 19<br>
 Express<br>
 MongoDB<br>
+Mongoose<br>
+Nodemon<br>
 JSON web token<br>
 BCrypt<br>
 Multer<br>
