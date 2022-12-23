@@ -11,9 +11,9 @@ In the project directory run:
 React<br>
 React Router<br>
 React Hook form<br>
-Redux<br>
 React Markdown<br>
 Simple Editor<br>
+Redux<br>
 Axios<br>
 Sass<br>
 Node.js 19<br>
