@@ -3,7 +3,7 @@ import style from './Author.module.sass';
 export const Author = () => {
     return (
     <div className={style.Author}>
-        <img src='' alt="" />
+        <div className={style.img}></div>
         <div>
             <p>
                 User
