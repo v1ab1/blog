@@ -5,7 +5,12 @@ export const Post = () => {
     return (
     <div className={style.Post}>
       <div className={style.postImage}></div>
-      <Author />
+      <div className={style.info}>
+        <Author />
+        <div>
+          <h2>BLBLLBLBALBLBLABBLALBALBBALLBALBALLALBLALBLABLALBLAB</h2>
+        </div>
+      </div>
     </div>
   );
 }
