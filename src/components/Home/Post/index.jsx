@@ -1,5 +1,6 @@
 import { Author } from './Author';
 import { Tag } from './Tag';
+import { Views } from './Views';
 import style from './Post.module.sass';
 
 export const Post = () => {
@@ -16,6 +17,9 @@ export const Post = () => {
             <Tag />
           </div>
         </div>
+      </div>
+      <div className={style.stats}>
+        <Views />
       </div>
     </div>
   );
