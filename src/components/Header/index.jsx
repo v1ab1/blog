@@ -7,7 +7,7 @@ export const Header = () => {
           <div className={style.active}>
             Main
           </div>
-          <div>
+          <div className={style.login}>
             Log in
           </div>
       </div>
