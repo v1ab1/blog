@@ -11,7 +11,7 @@ export const Post = () => {
       <div className={style.info}>
         <Author />
         <div className={style.headerAndTags}>
-          <h2>BLBLLBLBALBLBLABBLALBALBBALLBALBALLALBLALBLABLALBLAB</h2>
+          <h2>Post header</h2>
           <div className={style.tags}>
             <Tag />
             <Tag />
