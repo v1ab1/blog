@@ -1,4 +1,4 @@
-# vlabl's store
+# vlabl's blog
 Web application where you can register, write articles, upload pictures, leave comments and tags
 
 ## How to launch?
