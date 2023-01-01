@@ -5,7 +5,7 @@
     border-radius: 8px
     display: flex
     flex-direction: column
-    margin-bottom: 50px
+    margin-bottom: 30px
     width: 100%
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px
     .info
@@ -13,13 +13,21 @@
         width: 100%
         padding-right: 10px
         align-items: center
-        h2
-            margin-left: 30px
-            text-overflow: clip
-            white-space: nowrap
-            overflow: hidden
-            box-sizing: border-box
-            margin-bottom: 10px
+        gap: 30px
+        margin-bottom: 10px
+        .headerAndTags
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+            .tags
+                display: flex
+                gap: 30px
+            h2
+                font-size: 24px
+                text-overflow: clip
+                white-space: nowrap
+                overflow: hidden
+                box-sizing: border-box
     .postImage
         width: calc(100%-20px)
         flex-wrap: nowrap
