@@ -4,7 +4,10 @@ import Icon from './icon.svg';
 export const Views = () => {
     return (
     <div className={style.Views}>
-        <Icon />
+        <img src={Icon} alt="" />
+        <span>
+            999
+        </span>
     </div>
   );
 }

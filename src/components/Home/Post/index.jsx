@@ -1,6 +1,7 @@
 import { Author } from './Author';
 import { Tag } from './Tag';
 import { Views } from './Views';
+import { Comments } from './Comments';
 import style from './Post.module.sass';
 
 export const Post = () => {
@@ -20,6 +21,7 @@ export const Post = () => {
       </div>
       <div className={style.stats}>
         <Views />
+        <Comments />
       </div>
     </div>
   );
