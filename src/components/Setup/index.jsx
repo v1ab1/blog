@@ -1,9 +1,10 @@
-import style from './Login.module.sass';
+import style from './Setup.module.sass';
 
-export const Login = () => {
+export const Setup = () => {
     return (
-    <div className={style.Login}>
-        <h2>Log in</h2>
+    <div className={style.Setup}>
+        <h2>Set up</h2>
+        <input type="text" placeholder='Name' />
         <input type="email" placeholder='Email' />
         <input type="password" placeholder='Password' />
         <button>
