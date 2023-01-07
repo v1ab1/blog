@@ -1,10 +1,11 @@
 import React from "react";
+import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import ReactDOM from "react-dom/client";
 import { App } from "./App";
 import CssBaseline from "@mui/material/CssBaseline";
-
-import "./index.sass";
+import { store } from "./redux/store";
+import "./index.sass"; 
 import { ThemeProvider } from "@mui/material";
 import { theme } from "./theme";
 
@@ -15,7 +16,9 @@ root.render(
     <CssBaseline />
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </BrowserRouter>
     </ThemeProvider>
   </React.StrictMode>
