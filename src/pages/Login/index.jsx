@@ -10,7 +10,7 @@ export const Login = () => {
   return (
     <Paper classes={{ root: styles.root }}>
       <Typography classes={{ root: styles.title }} variant="h5">
-        Вход в аккаунт
+        Log in
       </Typography>
       <TextField
         className={styles.field}
@@ -21,7 +21,7 @@ export const Login = () => {
       />
       <TextField className={styles.field} label="Пароль" fullWidth />
       <Button size="large" variant="contained" fullWidth>
-        Войти
+        submit
       </Button>
     </Paper>
   );

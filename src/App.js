@@ -3,7 +3,7 @@ import Container from "@mui/material/Container";
 import { Header } from "./components";
 import { Home, FullPost, Registration, AddPost, Login } from "./pages";
 
-function App() {
+export const App = () => {
   return (
     <>
       <Header />
@@ -16,6 +16,4 @@ function App() {
       </Container>
     </>
   );
-}
-
-export default App;
+};
