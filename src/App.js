@@ -10,7 +10,7 @@ export const App = () => {
       <Container maxWidth="lg">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/posts/:id " element={<FullPost />} />
+          <Route path="/posts/:id" element={<FullPost />} />
           <Route path="/add" element={<AddPost />} />
           <Route path="/login" element={<Login />} />
           <Route path="/reg" element={<Registration />} />
