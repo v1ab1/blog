@@ -9,7 +9,7 @@ import { CommentsBlock } from '../components/CommentsBlock';
 
 export const Home = () => {
   React.useEffect(() => {
-    console.log(1);
+    axios.get('/posts');
   }, []);
   return (
     <>
